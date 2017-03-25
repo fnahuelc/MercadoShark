@@ -1,1 +1,51 @@
-<h1>Esta es la App</h1>
+{% extends 'managerApp/base.html' %}
+{% block articles_active %}active{% endblock %}
+
+{% block body %}
+<div class="article-container container-fluid">
+
+    <!-- Article -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Articulos de {{ user.username }}</h3>
+        </div>
+        {% if articles %}
+            {% for article in articles %}
+                <div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail">
+                        <a href="{% url 'managerApp:detail' article.id %}">
+                            <img src="{{ article.image.url }}" class="img-responsive">
+                        </a>
+                        <div class="caption">
+                            <h2>{{ article.title }}</h2>
+                            <h4>{{ article.price }}</h4>
+
+                            <!-- View Details -->
+                            <a href="{% url 'managerApp:detail' article.id %}" class="btn btn-primary btn-sm" role="button">Ver detalles</a>
+
+                            <!-- Delete Article -->
+                            <form action="{% url 'managerApp:delete_article' article.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="article_id" value="{{ article.id }}" />
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+            {% endfor %}
+        {% else %}
+            <div class="col-sm-12">
+                <br>
+                <a href="{% url 'managerApp:create_article' %}">
+                    <button type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; Publicar un articulo
+                    </button>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
