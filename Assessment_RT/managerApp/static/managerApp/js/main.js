@@ -1,7 +1,7 @@
 
-var ArticleListPage = {
+var ItemsListPage = {
 	init: function() {
-		this.$container = $('.articles-container');
+		this.$container = $('.items-container');
 		this.render();
 		this.bindEvents();
 	},
@@ -55,5 +55,5 @@ var ArticleListPage = {
 
 
 $(document).ready(function() {
-	ArticleListPage.init();
+	ItemsListPage.init();
 });

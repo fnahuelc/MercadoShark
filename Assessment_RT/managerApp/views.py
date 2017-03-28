@@ -1,234 +1,216 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import ArticleForm, UserMlForm
-from .models import Article, MlUser, Globals
+from .forms import ItemForm, UserMlForm
+from .models import Item, MlUser, Globals
 from ml_lib.meli import Meli
 import json
 import requests
+from . import itemsControlers
 
-IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
-globals = Globals()
-globals.save()
 
-def create_article(request):
+def init_globals():
+    # made an instance of globals (access_token) and delete the past ones
+    # this is called in the the index if is not logged any account
+    Globals.objects.all().delete()
+    globals = Globals()
+    globals.save()
+
+
+def create_item(request):
+    # in case that there are is not an active account
     if not MlUser.objects.get(active=True):
         return render(request, 'managerApp/login_mlUser.html')
+
     else:
-        form = ArticleForm(request.POST or None, request.FILES or None)
+        # if the form is vaild, publish item
+        form = ItemForm(request.POST or None, request.FILES or None)
         if form.is_valid():
-            article = form.save(commit=False)
-            article.account = get_object_or_404(MlUser, active=True)
+            response = itemsControlers.publish_item(form,Globals.objects.all()[0].access_token)
 
-            meli = Meli(client_id='38184225', client_secret='30120422', access_token=globals.access_token)
-            body = {"condition": article.condition,
-                    "warranty": article.warranty,
-                    "currency_id": article.currency_id,
-                    "accepts_mercadopago": True,
-                    "description": article.description,
-                    "listing_type_id": article.listing_type_id,
-                    "title": article.title,
-                    "available_quantity": article.available_quantity,
-                    "price": article.price,
-                    "buying_mode": article.buying_mode,
-                    "category_id": article.category_id,
-                    "pictures": [{"source": article.pictures}]}
+            # In case of Successful response answer
+            try:
+                permlink = response['permalink']
+                return render(request, 'managerApp/modal.html', {
+                    'content':'El articulo se ah publicado con exito!',
+                    'permlink':permlink})
 
-            response = meli.post("/items", body, {'access_token': meli.access_token})
-            article.save()
-            return render(request, 'managerApp/modal.html', {'content':'El articulo se ah publicado con exito!'})
+            # in cases of error
+            except:
+                return render(request, 'managerApp/modal.html', {
+                    'content': 'Lamentablemente, el articulo no se ah podido publicar. Se obtuvo: ' + str(response['message'])})
 
+        # if the form is not valid will be returned
+        # (the first time that the function is called there are no post request)
         context = { "form" : form }
-        return render(request, 'managerApp/create_article.html', context)
+        return render(request, 'managerApp/create_item.html', context)
 
 
-def delete_article(request, article_id):
+def delete_items(request, item_id):
+    # get the item if is id is valid
     try:
-        article = Article.objects.get(pk=article_id)
+        item = Item.objects.get(pk=item_id)
     except:
         return index(request)
+
+    # try to find the active account or set one as active
     try:
         account = MlUser.objects.get(active=True)
     except:
         MlUser.objects.all()[0].active = True
         account = MlUser.objects.get(active=True)
 
-    meli = Meli(client_id=account.username,client_secret=account.password, access_token=globals.access_token)
-    body = {"status":"closed"}
-    response = meli.put("/items/"+article.itemId, body, {'access_token':meli.access_token})
-    respuesta = json.loads(response.content)
+    # unpublish the item from Mercado Libre
+    response = itemsControlers.unpublish_item(item,account,Globals.objects.all()[0].access_token)
+
+    # in case that the answer is error
     try:
-        respuesta['error']
-        return get_access_token(request)
+        error = response['error']
+        if error == 'acces_token':
+            return get_access_token(request)
+        else:
+            return render(request, 'managerApp/modal.html', {
+                'content': 'Lamentablemente, el articulo no se ah podido eliminar. Se obtuvo: ' + str(
+                    response['message'])})
+
+    # if is not error will be deleted
     except:
-        article.delete()
+        item.delete()
         return index(request)
 
 
-def get_all_items(request):
-    #Article.objects.all().delete()
-    [get_articles_from_ML(request, account.username, account.password)
-    for account in MlUser.objects.all()]
-
-
-def set_current_account(request):
-    try:
-        account = MlUser.objects.get(active=True)
-    except:
-        try:
-            account = MlUser.objects.all()[0]
-        except:
-            login_mlUser(request)
-    meli = Meli(client_id=account.username,client_secret=account.password, access_token=globals.access_token)
-    response = json.loads(meli.get("/users/me?access_token="+str(globals.access_token)).content)
-    try:
-        if response['message'] == 'invalid_token':
-            return get_access_token(request)
-        return show_response(request,'respuesta',response)
-    except:
-        pass
-    globals.current_account = response['nickname']
-    globals.save()
-    return
-
-
 def delete_account(request, account_id):
+    # in the case that the selected account is valid will be deleted
     try:
         mlUser = MlUser.objects.get(pk=account_id)
         mlUser.delete()
     except:
         pass
+
+    # Choose other account as active
     accounts = MlUser.objects.all()
     try:
         accounts[0].active = True
         accounts[0].save()
-        account_active = MlUser.objects.get(active=True)
     except:
-        account_active = None
-
-    articles = Article.objects.all()
-    accounts = MlUser.objects.all()
-
+        pass
     return index(request)
 
 
 def index(request):
+    # In case that any account is logged in
     if len(MlUser.objects.all())==0:
+        init_globals()
         return render(request, 'managerApp/login_mlUser.html')
 
-    set_current_account(request)
-    get_all_items(request)
+    # Get the items publications from MercadoLibre and render them
+    itemsControlers.get_all_items(request,Globals.objects.all()[0].access_token)
     accounts = MlUser.objects.all()
-    articles = Article.objects.all()
-    delays = [.2*n for n in range(len(articles))]
+    items = Item.objects.all()
+    delays = [.2*n for n in range(len(items))]
     return render(request, 'managerApp/index.html',
-                         {'articles': zip(articles,delays),
+                         {'items': zip(items,delays),
                           'accounts': accounts,
-                          'current_account': globals.current_account,
                           'delays': delays})
 
 
+def logout(request):
+    #Delete all objects from database and the Global instance
+    MlUser.objects.all().delete()
+    Globals.objects.all().delete()
+    return redirect('https://www.mercadolibre.com/jms/mla/lgz/logout/')
+
+
 def select_account(request, account_id):
+    # Test that exist an active account
     try:
         ml_account_old = MlUser.objects.get(active=True)
-        ml_account_old.active = False;
+        ml_account_old.active = False
         ml_account_old.save()
-
     except:
         pass
+
+    # Set the ml account as active
     ml_account = MlUser.objects.get(id=account_id)
-    ml_account.active = True;
+    ml_account.active = True
     ml_account.save()
 
+    # Filter and show the items of specified account
     accounts = MlUser.objects.all()
-    articles = Article.objects.filter(account=ml_account)
+    items = Item.objects.filter(account=ml_account)
+    delays = [.2*n for n in range(len(items))]
 
-    return render(request, 'managerApp/index.html', {'articles': articles, 'accounts':accounts, 'current_account':globals.current_account})
+    return render(request, 'managerApp/index.html', {'items': zip(items,delays), 'accounts': accounts})
 
 
-def get_access_token(request, code=None, aditional_info=None):
+def get_access_token(request, code=None):
+    # Get the code from Mercado Libre (after redirect)
     code = request.GET.get('code')
+
+    # if exist the code
     if code:
+        # Make the request of the acces token by posting the code
         response = requests.post("https://api.mercadolibre.com/oauth/token?grant_type=authorization_code&client_id=4704790082736526&client_secret=V94M94z1GYoQC5PLXHL95O6mS6p6mOVH&code="+code+"&redirect_uri=http://www.localhost:8000/managerApp/get_access_token/")
+
+        # get the access_token from the answer and save it
         access_token = json.loads(response.content)['access_token']
-        globals.access_token = access_token
-        globals.save()
-        if aditional_info:
-            return render(request, 'managerApp/modal.html', {'content':'Un nuevo ACCESS TOKEN ah sido creado ,'+str(aditional_info)})
-        else:
-            return render(request, 'managerApp/modal.html', {'content':'Un nuevo ACCESS TOKEN ah sido creado. Ahora puede comenzar a operar.'})
+        current_global = Globals.objects.all()[0]
+        current_global.access_token = access_token
+        current_global.save()
+
+        # Let know the user about the new acces_token
+        return render(request, 'managerApp/modal.html', {'content':'Un nuevo ACCESS TOKEN ah sido creado. Ahora puede comenzar a operar.'})
     return redirect('https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=4704790082736526')
 
 
 def create_testUser(request):
-    account = MlUser.objects.get(active=True)
-    meli = Meli(account.username,account.password,globals.access_token)
-    body = {"site_id":"MLA"}
-    response = meli.post("/users/test_user", body, {'access_token': globals.access_token})
+    # This is not working at the moment because I already reach the 10 test users.
+    # I just have the information of one:
+    # "id": 249620029,
+    # "nickname": "TETE9430306",
+    # "password": "qatest4690",
+    # "site_status": "active",
+    # "email": "test_user_30720982@testuser.com"
 
-    return show_response(request, 'El resultado de crear un nuevo test user es ', str(response.content))
+    # Get the active account and made a post request to Mercado Libre
+    account = MlUser.objects.get(active=True)
+    meli = Meli(account.username, account.password, globals.access_token)
+    body = {"site_id": "MLA"}
+    response = json.loads(meli.post("/users/test_user",
+                                body,
+                                {'access_token': globals.access_token}).content)
+
+    # In case of error
+    try:
+        error = response['error']
+        return render(request, 'managerApp/modal.html', {'content': 'Ah habido un problema en la creacion del Test User, la '
+                                                             'devolucion fue: ,' + str(response)})
+    # In the case of successful
+    except:
+        return render(request, 'managerApp/modal.html',
+                      {'content': 'El test user fue creado correctamente, la informacion es: ' + str(response)})
 
 
 def login_mlUser(request):
+    # if the form is vaild, create a new account
+
     form = UserMlForm(request.POST or None)
     if form.is_valid():
+
+        # set the current active account in false (no active)
         try:
             ml_account_old = MlUser.objects.get(active=True)
             ml_account_old.active = False;
             ml_account_old.save()
         except:
             pass
+
+        # save the new account
         user_ml = form.save(commit=False)
-        user_ml.access_token = globals.access_token
-
-        client_id = str(user_ml.username)
-        client_secret = str(user_ml.password)
-
         user_ml.save()
-        get_articles_from_ML(request, client_id,client_secret)
-        return get_access_token(request,None,' para poder completar su solicitud. Por favor, intente nuevamente')
+
+        # get a new acces token
+        return get_access_token(request)
+
+    # if the form is not valid will be returned
+    # (the first time that the function is called there are no post request)
     context = {"form": form}
     return render(request,'managerApp/login_mlUser.html', context)
-
-
-def get_articles_from_ML(request,username, password,site_id='MLA'):
-    meli = Meli(client_id=username,
-                client_secret=password,
-                access_token=globals.access_token)
-    response = meli.get(path="sites/"+site_id+"/search?nickname="+str(username))
-    response_dict = json.loads(response.content)
-    items = response_dict['results']
-    articlesId = [article.itemId for article in Article.objects.all()]
-    for item in items:
-        if not item['id'] in articlesId:
-            article = Article(
-
-                title=item['title'],
-                price=item['price'],
-                available_quantity=item['available_quantity'],
-                description='nada',
-                itemId = item['id'],
-                pictures=item['thumbnail'],
-                permalink=item['permalink']
-            )
-            article.account = get_object_or_404(MlUser, active=True)
-            article.save()
-    return str(items)
-
-def publicate_items_in_ML(request,username, password,site_id='MLA'):
-    meli = Meli(client_id=username,
-                client_secret=password,
-                access_token=globals.access_token)
-
-    params = {'access_token': meli.access_token}
-    body = {'title': "Anteojos Ray Ban Wayfare", 'category_id': "MLA5529", 'price': 10, 'currency_id': "ARS",
-            'available_quantity': 1, 'buying_mode': "buy_it_now", 'listing_type_id': "bronze", 'condition': "new",
-            'description': "Item:,  Ray-Ban WAYFARER Gloss Black RB2140 901  Model: RB2140. Size: 50mm. Name: WAYFARER. Color: Gloss Black. Includes Ray-Ban Carrying Case and Cleaning Cloth. New in Box",
-            'video_id': "YOUTUBE_ID_HERE", 'warranty': "12 months by Ray Ban", 'pictures': [
-            {'source': "https://upload.wikimedia.org/wikipedia/commons/f/fd/Ray_Ban_Original_Wayfarer.jpg"},
-            {'source': "https://en.wikipedia.org/wiki/File:Teashades.gif"}]}
-    response1 = meli.post(path="/items", body=body, params=params)
-    response = get_articles_from_ML(request,username, password,site_id='MLA')
-    return str(response1.content)
-
-def show_response(request,title, response):
-    return render(request, 'managerApp/show_response.html', {'response': response, 'title':title})
-

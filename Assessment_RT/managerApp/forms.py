@@ -1,10 +1,10 @@
 from django import forms
 from django.contrib.auth.models import User
 
-from .models import Article, MlUser
+from .models import Item, MlUser
 
 
-class ArticleForm(forms.ModelForm):
+class ItemForm(forms.ModelForm):
     styles = {'class':'form-control',
                      'style':
                          'width:80%;'
@@ -92,10 +92,8 @@ class ArticleForm(forms.ModelForm):
         initial='http://assets.ray-ban.com//is/image/RayBan/805289653653_shad_fr?$440$'
     )
 
-
-
     class Meta:
-        model = Article
+        model = Item
         fields = [
             'title',
             'category_id',

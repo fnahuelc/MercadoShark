@@ -43,14 +43,14 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'managerApp:create_article' %}">
+                    <a href="{% url 'managerApp:create_item' %}">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Agregar Articulo
                     </a>
                 </li>
                 {% block cuentasML %}
                 {% endblock %}
                 <li>
-                    <a href="https://www.mercadolibre.com/jms/mla/lgz/logout/">
+                    <a href="{% url 'managerApp:logout' %}">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Salir
                     </a>
                 </li>
