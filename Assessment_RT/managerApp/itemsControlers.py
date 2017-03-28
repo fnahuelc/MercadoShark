@@ -6,7 +6,6 @@ import json
 import requests
 
 
-
 def publish_item(form,access_token):
     # Save the form as a new object,
     # and made a instance of meli with active account
