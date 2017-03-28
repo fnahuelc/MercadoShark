@@ -1,0 +1,68 @@
+{% extends 'managerApp/base.html' %}
+{% block account_active %}{{account_active}}{% endblock %}
+{% block articles_active %}active{% endblock %}
+{% block cuentasML %}
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+            Cuenta de Mercado Libre<b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            {% for account in accounts %}
+            <li>
+                <form action="{% url 'managerApp:select_account'  account.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                    <input type="hidden" name="account_id" value="{{  account.id }}" />
+                    <button type="submit" class="btn btn-default btn-sm">
+                            {{account.username}}
+                    </button>
+                </form>
+                <form action="{% url 'managerApp:delete_account' account.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                    <input type="hidden" name="account_id" value="{{ account.id }}" />
+                    <button type="submit" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </form>
+            </li>
+            <li class="divider"></li>
+            {% endfor %}
+            <li>
+                <a href="{% url 'managerApp:create_testUser' %}">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Agregar Cuenta de Prueba
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'managerApp:login_mlUser' %}">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Agregar Cuenta de Mercadolibre
+                </a>
+            </li>
+        </ul>
+    </li>
+{% endblock %}
+{% block body %}
+
+
+
+
+<div class="modal-dialog modal-lg wow zoomIn" data-wow-duration="1s"">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h2 class="modal-title" id="myModalLabel">Atencion!</h2>
+			<h4>{{content}}</h4>
+			<script> setTimeout(function() { jQuery('#modal').modal('hide'); }, 1000); $('body').on('hidden.bs.modal', '.modal', function () { $(this).removeData('bs.modal'); }); </script>
+		</div>
+         <div class="modal-footer">
+             <a class="btn btn-primary" data-toggle="modal" href="{% url 'managerApp:index' %}">Aceptar</a>
+        </div>
+	</div>
+	<!-- /.modal-content -->
+</div>
+
+
+{% endblock %}
+
+
+
+
+

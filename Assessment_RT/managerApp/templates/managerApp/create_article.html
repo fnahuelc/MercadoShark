@@ -4,41 +4,26 @@
 
 {% block body %}
 <div class="container-fluid">
-
     <div class="row">
-
-        <div class="col-sm-12 col-md-7">
+        <div class="col-sm-offset-1 col-sm-10">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3>Publicar un articulo/h3>
+                    <h3>Publicar un articulo</h3>
                     {% if error_message %}
-                        <p><strong>{{ error_message }}</strong></p>
+                    <p><strong>{{ error_message }}</strong></p>
                     {% endif %}
                     <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {% include 'managerApp/form_template.html' %}
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-success">Aceptar</button>
+                            <div  class="col-sm-offset-5 col-sm-11 centered">
+                                <button type="submit" class="btn btn-success">    Publicar   </button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
-        <div class="col-sm-12 col-md-5">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h3>Que es MercadoShark?</h3>
-                    <p>MercadoShark es una aplicacion que te permite manejar mejor tus publicaciones de MercadoLibre, agregando o eliminando tus publicaciones.</p>
-                    <h3>Como hago una nueva publicacion?</h3>
-                    <p>Dirigete a la pagina principal y rellena el formulario para crear una nueva publicacion</p>
-                </div>
-            </div>
-        </div>
-
     </div>
-
 </div>
 {% endblock %}
