@@ -6,14 +6,10 @@ import json
 import requests
 
 
-def publish_item(form,access_token):
+def publish_item(form,meli):
     # Save the form as a new object,
     # and made a instance of meli with active account
     item = form.save(commit=False)
-    account = MlUser.objects.get(active=True)
-    meli = Meli(client_id=account.username,
-                client_secret=account.password,
-                access_token=access_token)
 
     # build the publication and return answer
     publication = {
@@ -33,21 +29,20 @@ def publish_item(form,access_token):
     return (json.loads(meli.post("/items", publication, {'access_token': meli.access_token}).content))
 
 
-def unpublish_item(item,account,access_token):
+def unpublish_item(item,meli):
     # set as status close the item
-    meli = Meli(client_id=account.username,client_secret=account.password, access_token=access_token)
     body = {"status":"closed"}
     response = meli.put("/items/"+item.itemId, body, {'access_token':meli.access_token})
     return json.loads(response.content)
 
 
-def get_all_items(request, access_token):
+def get_all_items(username, meli):
     # This function creates items of the all publication of all accounts
-    [get_items_from_ML(request, account.username, account.password, access_token)
+    [get_items_from_ML(username, meli)
     for account in MlUser.objects.all()]
 
 
-def get_items_from_ML(request,username, password,access_token,site_id='MLA'):
+def get_items_from_ML(username, password,access_token,site_id='MLA'):
     # this function get all publications of a single account
 
     meli = Meli(client_id=username,

@@ -15,6 +15,9 @@ urlpatterns = [
     url(r'^logout/$', views.logout, name='logout'),
 
     url(r'^get_access_token$', views.get_access_token, name='get_access_token'),
-    url(r'^get_access_token/(?P<code>w{0,150})$', views.get_access_token, name='getting_access_token')
+
+    url(r'^authorize_meli$', views.authorize_meli, name='authorize_meli'),
+    url(r'^authorize_meli/(?P<code>w{0,150})$', views.authorize_meli, name='authorizing_meli')
+
 ]
 

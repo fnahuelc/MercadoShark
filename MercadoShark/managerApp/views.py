@@ -5,6 +5,7 @@ from ml_lib.meli import Meli
 import json
 import requests
 from . import itemsControlers
+import sys
 
 
 def init_globals():
@@ -24,7 +25,7 @@ def create_item(request):
         # if the form is vaild, publish item
         form = ItemForm(request.POST or None, request.FILES or None)
         if form.is_valid():
-            response = itemsControlers.publish_item(form,Globals.objects.all()[0].access_token)
+            response = itemsControlers.publish_item(form,meli)
 
             # In case of Successful response answer
             try:
@@ -59,7 +60,7 @@ def delete_items(request, item_id):
         account = MlUser.objects.get(active=True)
 
     # unpublish the item from Mercado Libre
-    response = itemsControlers.unpublish_item(item,account,Globals.objects.all()[0].access_token)
+    response = itemsControlers.unpublish_item(item,meli)
 
     # in case that the answer is error
     try:
@@ -97,6 +98,7 @@ def delete_account(request, account_id):
 
 def index(request):
     # In case that any account is logged in
+
     if len(MlUser.objects.all())==0:
         init_globals()
         return render(request, 'managerApp/login_mlUser.html')
@@ -141,25 +143,21 @@ def select_account(request, account_id):
     return render(request, 'managerApp/index.html', {'items': zip(items,delays), 'accounts': accounts})
 
 
-def get_access_token(request, code=None):
-    # Get the code from Mercado Libre (after redirect)
+appID = 4704790082736526
+secretID = 'V94M94z1GYoQC5PLXHL95O6mS6p6mOVH'
+meli = Meli(client_id=appID,client_secret=secretID)
+REDIRECT_URI = 'http://www.localhost:8000/managerApp/authorize_meli'
+
+def get_access_token(request):
+    redirectURI = redirect(meli.auth_url(redirect_URI=REDIRECT_URI))
+    return redirectURI
+
+def authorize_meli(request):
     code = request.GET.get('code')
-
-    # if exist the code
     if code:
-        # Make the request of the acces token by posting the code
-        response = requests.post("https://api.mercadolibre.com/oauth/token?grant_type=authorization_code&client_id=4704790082736526&client_secret=V94M94z1GYoQC5PLXHL95O6mS6p6mOVH&code="+code+"&redirect_uri=http://www.localhost:8000/managerApp/get_access_token/")
-
-        # get the access_token from the answer and save it
-        access_token = json.loads(response.content)['access_token']
-        current_global = Globals.objects.all()[0]
-        current_global.access_token = access_token
-        current_global.save()
-
-        # Let know the user about the new acces_token
-        return render(request, 'managerApp/modal.html', {'content':'Un nuevo ACCESS TOKEN ah sido creado. Ahora puede comenzar a operar.'})
-    return redirect('https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=4704790082736526')
-
+        meli.authorize(code, REDIRECT_URI)
+        print ('se creo un nuevo access token', meli.access_token)
+    return index(request)
 
 def create_testUser(request):
     # This is not working at the moment because I already reach the 10 test users.
@@ -172,7 +170,6 @@ def create_testUser(request):
 
     # Get the active account and made a post request to Mercado Libre
     account = MlUser.objects.get(active=True)
-    meli = Meli(account.username, account.password, globals.access_token)
     body = {"site_id": "MLA"}
     response = json.loads(meli.post("/users/test_user",
                                 body,
@@ -214,3 +211,4 @@ def login_mlUser(request):
     # (the first time that the function is called there are no post request)
     context = {"form": form}
     return render(request,'managerApp/login_mlUser.html', context)
+
