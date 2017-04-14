@@ -1,0 +1,32 @@
+{% extends 'managerApp/base.html' %}
+{% block body %}
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'managerApp/style_login.css' %}"/>
+
+<div class="container">
+    <div id="login" class="signin-card">
+        <div class="logo-image">
+            {% load staticfiles %}
+            <img src="{%  static 'favicon.png' %}" alt="Logo" title="Logo" width="138" \>
+        </div>
+        <h3 style="text-align:center;" class="display1">Que es   <strong style='padding:0; height:33px;  font-family: "Satisfy", cursive;' >MercadoShark</strong>?</h3>
+        <div class="subhead">
+            <p style="text-align:justify;"><strong> MercadoShark </strong> es una aplicacion que te permite manejar mejor tus publicaciones de MercadoLibre.
+             <br><br> Para comenzar debes iniciar sesion en Mercado Libre</p>
+        </div>
+
+        <form action="{% url 'managerApp:login'%}" method="post" class="" role="form">
+            {% csrf_token %}
+            <div>
+                <button class="btn btn-block btn-info ripple-effect" type="submit" name="Submit" alt="sign in">Logearse en Mercado Libre</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+
