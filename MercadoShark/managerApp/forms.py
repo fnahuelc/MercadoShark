@@ -92,14 +92,6 @@ class ItemForm(forms.ModelForm):
         initial='http://assets.ray-ban.com//is/image/RayBan/805289653653_shad_fr?$440$'
     )
 
-    status = forms.CharField(
-        widget=forms.Select(
-            attrs=styles,
-            choices=([
-                ('active', 'Activo'),
-                ('paused', 'Pausada'),
-            ])))
-
     class Meta:
         model = Item
         fields = [
@@ -115,3 +107,11 @@ class ItemForm(forms.ModelForm):
             'warranty',
             'pictures'
         ]
+
+class UserMlForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = MlUser
+        fields = ['username', 'password']
+

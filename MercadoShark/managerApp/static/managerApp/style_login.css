@@ -257,7 +257,7 @@ body {
 }
 .btn-info .ink,
 .dropdown-toggle.btn-info .ink {
-    background: white url("images/background.png");
+  background-color: #0277bd;
 }
 .btn-flat.btn-info {
   color: #03a9f4;
@@ -812,8 +812,7 @@ fieldset[disabled] .form-control {
 /* -- body styles ------------------------------------- */
 body {
   font-family: "Roboto", 'Helvetica Neue, Helvetica, Arial', sans-serif;
-  background: white url("images/background.png");
-
+  background: #0277bd;
 }
 /* -- button styles ------------------------------------- */
 /*-- signin-card animation ---------------------------------------- */

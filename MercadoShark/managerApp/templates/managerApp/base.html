@@ -32,10 +32,13 @@
 
         <!-- Items -->
         <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'managerApp:index' %}"><span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp; Todos los articlulos a la venta</a></li>
+            </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="{% url 'managerApp:login' %}">
+                    <a href="{% url 'managerApp:get_access_token' %}">
                         <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>&nbsp; Refrescar el Access token
                     </a>
                 </li>

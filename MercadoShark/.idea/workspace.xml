@@ -18,59 +18,57 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/managerApp/views.py">
+            <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+                <state relative-caret-position="285">
+                  <caret line="186" column="11" lean-forward="true" selection-start-line="186" selection-start-column="11" selection-end-line="186" selection-end-column="11" />
                   <folding>
                     <element signature="e#0#64#0" expanded="true" />
-                    <element signature="e#236#1151#0" expanded="false" />
-                    <element signature="e#1206#1831#0" expanded="false" />
-                    <element signature="e#1858#1888#0" expanded="false" />
-                    <element signature="e#1924#1970#0" expanded="false" />
-                    <element signature="e#2011#2062#0" expanded="false" />
-                    <element signature="e#2103#2154#0" expanded="false" />
-                    <element signature="e#2195#2246#0" expanded="false" />
-                    <element signature="e#2287#2338#0" expanded="false" />
-                    <element signature="e#2365#2975#0" expanded="false" />
-                    <element signature="e#3003#3166#0" expanded="false" />
-                    <element signature="e#3195#3617#0" expanded="false" />
-                    <element signature="e#3674#3980#0" expanded="false" />
-                    <element signature="e#4021#4163#0" expanded="false" />
+                    <element signature="e#2775#3143#0" expanded="false" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/managerApp/admin.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#0#32#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/managerApp/static/managerApp/style.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" column="30" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/managerApp/models.py">
+            <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="10" />
+                <state relative-caret-position="375">
+                  <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/templates/managerApp/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="810">
+                  <caret line="54" column="40" lean-forward="false" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/templates/managerApp/base.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="675">
+                  <caret line="45" column="59" lean-forward="false" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="59" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/urls.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="105">
+                  <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+                  <folding>
+                    <element signature="e#0#32#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -80,66 +78,77 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/index.html">
+          <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/forms.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="231">
-                  <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+                <state relative-caret-position="1380">
+                  <caret line="95" column="20" lean-forward="false" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
                   <folding>
-                    <element signature="n#style#0;n#h4#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="e#0#24#0" expanded="true" />
+                    <element signature="e#1653#1711#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/managerApp/urls.py">
+          <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/admin.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-                  <folding>
-                    <element signature="e#0#32#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/base.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="275">
-                  <caret line="41" column="20" lean-forward="true" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+                <state relative-caret-position="15">
+                  <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="itemsControlers.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/managerApp/itemsControlers.py">
+          <file leaf-file-name="modal.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/templates/managerApp/modal.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="296">
-                  <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+                <state relative-caret-position="645">
+                  <caret line="43" column="68" lean-forward="false" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="itemsControlers.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/itemsControlers.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="735">
+                  <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
                   <folding>
                     <element signature="e#0#64#0" expanded="true" />
-                    <element signature="e#375#1199#0" expanded="false" />
-                    <element signature="e#1248#1638#0" expanded="false" />
-                    <element signature="e#1673#1820#0" expanded="false" />
-                    <element signature="e#1881#2305#0" expanded="false" />
-                    <element signature="e#2338#2937#0" expanded="false" />
-                    <element signature="e#2977#3341#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="manage.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/manage.py">
+          <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/../MercadoShark/MercadoShark/wsgi.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="15">
-                  <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#22#31#0" expanded="true" />
-                  </folding>
+                  <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../MercadoShark/MercadoShark/settings.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="15">
+                  <caret line="1" column="32" lean-forward="false" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="manage.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../MercadoShark/manage.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="60">
+                  <caret line="5" column="65" lean-forward="false" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="65" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -158,11 +167,20 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>get_all</find>
+      <find>try</find>
+      <find>animation</find>
+      <find>login</find>
+      <find>detail</find>
+      <find>create</find>
+      <find>create_arti</find>
       <find>modal</find>
       <find>get_acc</find>
       <find>publicate_items_in</find>
       <find>show</find>
+      <find>delete</find>
       <find>index</find>
+      <find>access</find>
       <find>get_acces</find>
       <find>aditional_info</find>
       <find>get_access_token</find>
@@ -179,78 +197,57 @@
       <find>get_all_items</find>
       <find>item_id</find>
       <find>current_account</find>
-      <find>delete</find>
-      <find>trash</find>
-      <find>salir</find>
-      <find>background</find>
-      <find>body</find>
-      <find>todos</find>
-      <find>meli</find>
-      <find>login</find>
-      <find>access</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../Assessment_RT/SDK_mercadolibre/python-sdk/teste.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/SDK_mercadolibre/python-sdk/lib/config.ini" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/newTestUser_JSON" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/newUserTest" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/base_visitor.html" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/register.html" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/login.html" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/detail.html" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/python-sdk/examples/text" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/show_response.html" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/python-sdk/examples/delete.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/python-sdk/examples/put.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/static/managerApp/style_login.css" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/please_log_in.html" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/static/managerApp/style.css" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/create_article.html" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/form_template.html" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/controlers" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/acountsControlers.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/accountsControlers.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/login_mlUser.html" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/static/managerApp/js/main.js" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/forms.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/admin.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/modal.html" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/urls.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/base.html" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/models.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/index.html" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/itemsControlers.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/managerApp/views.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/Assessment_RT/wsgi.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/Assessment_RT/settings.py" />
-        <option value="$PROJECT_DIR$/../Assessment_RT/manage.py" />
-        <option value="$PROJECT_DIR$/MercadoShark/settings.py" />
-        <option value="$PROJECT_DIR$/MercadoShark/wsgi.py" />
-        <option value="$PROJECT_DIR$/managerApp/pruebas.py" />
-        <option value="$PROJECT_DIR$/managerApp/admin.py" />
-        <option value="$PROJECT_DIR$/managerApp/models.py" />
-        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/login_mlUser.html" />
-        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/base.html" />
-        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/index.html" />
-        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/welcomeFirstTime.html" />
-        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/welcome.html" />
-        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/modal.html" />
-        <option value="$PROJECT_DIR$/managerApp/forms.py" />
-        <option value="$PROJECT_DIR$/managerApp/static/managerApp/style.css" />
+        <option value="$PROJECT_DIR$/managerApp/templates.py" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/Assessment_RT/urls.py" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/detail2.html" />
+        <option value="$PROJECT_DIR$/SDK_mercadolibre/python-sdk/teste.py" />
+        <option value="$PROJECT_DIR$/SDK_mercadolibre/python-sdk/lib/config.ini" />
+        <option value="$PROJECT_DIR$/managerApp/newTestUser_JSON" />
+        <option value="$PROJECT_DIR$/managerApp/newUserTest" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/base_visitor.html" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/register.html" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/login.html" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/detail.html" />
+        <option value="$PROJECT_DIR$/python-sdk/examples/text" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/show_response.html" />
+        <option value="$PROJECT_DIR$/python-sdk/examples/delete.py" />
+        <option value="$PROJECT_DIR$/python-sdk/examples/put.py" />
         <option value="$PROJECT_DIR$/managerApp/static/managerApp/style_login.css" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/please_log_in.html" />
+        <option value="$PROJECT_DIR$/managerApp/static/managerApp/style.css" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/create_article.html" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/form_template.html" />
+        <option value="$PROJECT_DIR$/managerApp/controlers" />
+        <option value="$PROJECT_DIR$/managerApp/acountsControlers.py" />
+        <option value="$PROJECT_DIR$/managerApp/accountsControlers.py" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/login_mlUser.html" />
+        <option value="$PROJECT_DIR$/managerApp/static/managerApp/js/main.js" />
+        <option value="$PROJECT_DIR$/managerApp/forms.py" />
+        <option value="$PROJECT_DIR$/managerApp/admin.py" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/modal.html" />
         <option value="$PROJECT_DIR$/managerApp/urls.py" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/base.html" />
+        <option value="$PROJECT_DIR$/managerApp/models.py" />
+        <option value="$PROJECT_DIR$/managerApp/templates/managerApp/index.html" />
         <option value="$PROJECT_DIR$/managerApp/itemsControlers.py" />
         <option value="$PROJECT_DIR$/managerApp/views.py" />
+        <option value="$PROJECT_DIR$/Assessment_RT/wsgi.py" />
+        <option value="$PROJECT_DIR$/Assessment_RT/settings.py" />
+        <option value="$PROJECT_DIR$/manage.py" />
+        <option value="$PROJECT_DIR$/../MercadoShark/MercadoShark/settings.py" />
+        <option value="$PROJECT_DIR$/../MercadoShark/MercadoShark/wsgi.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1920" />
-    <option name="width" value="1920" />
-    <option name="height" value="1200" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -286,6 +283,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -322,93 +320,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="managerApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="managerApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MercadoShark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MercadoShark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="managerApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MercadoShark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MercadoShark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="managerApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="managerApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MercadoShark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MercadoShark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="MercadoShark" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="FullScreen" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/managerApp/templates/managerApp" />
-      <recent name="$PROJECT_DIR$/../Assessment_RT/managerApp" />
-      <recent name="$PROJECT_DIR$/../Assessment_RT/managerApp/static/managerApp" />
-      <recent name="$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../Assessment_RT" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/managerApp" />
+      <recent name="$PROJECT_DIR$/managerApp/static/managerApp" />
+      <recent name="$PROJECT_DIR$/managerApp/templates/managerApp" />
     </key>
   </component>
   <component name="RunManager" selected="Python.teste">
@@ -419,12 +353,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Assessment_RT/SDK_mercadolibre/python-sdk" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SDK_mercadolibre/python-sdk" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Assessment_RT" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Assessment_RT/SDK_mercadolibre/python-sdk/teste.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SDK_mercadolibre/python-sdk/teste.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -586,17 +520,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="0" width="1920" height="1200" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1875" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32870772" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32870772" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -618,11 +552,19 @@
           <url>file://$USER_HOME$/Downloads/Viberr-master/music/forms.py</url>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="23" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/managerApp/meli.py" />
     <entry file="file://$USER_HOME$/Downloads/Viberr-master/music/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -640,7 +582,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/ml_lib/meli.py">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/ml_lib/meli.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-75">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
@@ -648,28 +590,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/ml_lib/config.ini">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/db.sqlite3">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/ml_lib/config.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MercadoShark/urls.py">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/MercadoShark/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/migrations/0009_auto_20170325_2141.py">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/migrations/0009_auto_20170325_2141.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
           <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
@@ -683,15 +633,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/base_visitor.html" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/python-sdk/README.md" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/python-sdk/examples/text" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/python-sdk/lib/config.ini" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/python-sdk/lib/meli.py" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/please_log_in.html" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/show_response.html" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/python-sdk/examples/example_login.py" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/python-sdk/examples/delete.py" />
+    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/base_visitor.html" />
+    <entry file="file://$PROJECT_DIR$/python-sdk/README.md" />
+    <entry file="file://$PROJECT_DIR$/python-sdk/examples/text" />
+    <entry file="file://$PROJECT_DIR$/python-sdk/lib/config.ini" />
+    <entry file="file://$PROJECT_DIR$/python-sdk/lib/meli.py" />
+    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/please_log_in.html" />
+    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/show_response.html" />
+    <entry file="file://$PROJECT_DIR$/python-sdk/examples/example_login.py" />
+    <entry file="file://$PROJECT_DIR$/python-sdk/examples/delete.py" />
     <entry file="file://$USER_HOME$/Downloads/Viberr-master/music/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="498">
@@ -699,12 +649,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/python-sdk/examples/put.py" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/python-sdk/examples/post.py" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/python-sdk/examples/get.py" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/register.html" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/detail.html" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/managerApp/templates/managerApp/login.html" />
+    <entry file="file://$PROJECT_DIR$/python-sdk/examples/put.py" />
+    <entry file="file://$PROJECT_DIR$/python-sdk/examples/post.py" />
+    <entry file="file://$PROJECT_DIR$/python-sdk/examples/get.py" />
+    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/register.html" />
+    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/detail.html" />
+    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/login.html" />
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/templates/managerApp/create_item.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="45" lean-forward="false" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/Django-1.9-py2.7.egg/django/contrib/admin/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -719,112 +676,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/apps.py">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/managerApp/itemsControlers" />
-    <entry file="file://$PROJECT_DIR$/../Assessment_RT/managerApp/accountsControlers.py" />
-    <entry file="file://$PROJECT_DIR$/managerApp/static/managerApp/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MercadoShark/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/pruebas.py" />
-    <entry file="file://$PROJECT_DIR$/managerApp/tests.py">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db.sqlite3">
+    <entry file="file://$PROJECT_DIR$/managerApp/itemsControlers" />
+    <entry file="file://$PROJECT_DIR$/managerApp/accountsControlers.py" />
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1305">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MercadoShark/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="32" lean-forward="false" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/create_item.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/form_template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/welcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/welcomeFirstTime.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#22#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        <state relative-caret-position="1380">
+          <caret line="95" column="20" lean-forward="false" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
             <element signature="e#1653#1711#0" expanded="false" />
@@ -832,105 +703,134 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/models.py">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/static/managerApp/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/static/managerApp/style_login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="819" column="24" lean-forward="false" selection-start-line="819" selection-start-column="22" selection-end-line="819" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/static/managerApp/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/templates/managerApp/form_template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="10" />
+          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/templates/managerApp/login_mlUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/templates/managerApp/modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="68" lean-forward="false" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/templates/managerApp/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="59" lean-forward="false" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/templates/managerApp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="54" column="40" lean-forward="false" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/static/managerApp/style.css">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/itemsControlers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="30" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="735">
+          <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/static/managerApp/style_login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="260" column="0" lean-forward="false" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/admin.py">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#h4#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/templates/managerApp/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="41" column="20" lean-forward="true" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+          <caret line="5" column="65" lean-forward="false" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/urls.py">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/MercadoShark/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" column="32" lean-forward="false" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/itemsControlers.py">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/MercadoShark/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-            <element signature="e#375#1199#0" expanded="false" />
-            <element signature="e#1248#1638#0" expanded="false" />
-            <element signature="e#1673#1820#0" expanded="false" />
-            <element signature="e#1881#2305#0" expanded="false" />
-            <element signature="e#2338#2937#0" expanded="false" />
-            <element signature="e#2977#3341#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/managerApp/views.py">
+    <entry file="file://$PROJECT_DIR$/../MercadoShark/managerApp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="285">
+          <caret line="186" column="11" lean-forward="true" selection-start-line="186" selection-start-column="11" selection-end-line="186" selection-end-column="11" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
-            <element signature="e#236#1151#0" expanded="false" />
-            <element signature="e#1206#1831#0" expanded="false" />
-            <element signature="e#1858#1888#0" expanded="false" />
-            <element signature="e#1924#1970#0" expanded="false" />
-            <element signature="e#2011#2062#0" expanded="false" />
-            <element signature="e#2103#2154#0" expanded="false" />
-            <element signature="e#2195#2246#0" expanded="false" />
-            <element signature="e#2287#2338#0" expanded="false" />
-            <element signature="e#2365#2975#0" expanded="false" />
-            <element signature="e#3003#3166#0" expanded="false" />
-            <element signature="e#3195#3617#0" expanded="false" />
-            <element signature="e#3674#3980#0" expanded="false" />
-            <element signature="e#4021#4163#0" expanded="false" />
+            <element signature="e#2775#3143#0" expanded="false" />
           </folding>
         </state>
       </provider>
