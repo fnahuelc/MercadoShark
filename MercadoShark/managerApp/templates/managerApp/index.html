@@ -1,43 +1,4 @@
 {% extends 'managerApp/base.html' %}
-{% block items_active %}active{% endblock %}
-{% block cuentasML %}
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-            Filtrar por cuenta de Mercado Libre<b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-            {% for account in accounts %}
-            <li>
-                <form action="{% url 'managerApp:select_account'  account.id %}" method="post" style="display: inline;">
-                                {% csrf_token %}
-                    <input type="hidden" name="account_id" value="{{  account.id }}" />
-                    <button type="submit" class="btn btn-default btn-sm">
-                            {{account.username}}
-                    </button>
-                </form>
-                <form action="{% url 'managerApp:delete_account' account.id %}" method="post" style="display: inline;">
-                                {% csrf_token %}
-                    <input type="hidden" name="account_id" value="{{ account.id }}" />
-                    <button type="submit" class="btn btn-default btn-sm">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                </form>
-            </li>
-            <li class="divider"></li>
-            {% endfor %}
-            <li>
-                <a href="{% url 'managerApp:create_testUser' %}">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Agregar Cuenta de Prueba
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'managerApp:login_mlUser' %}">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Agregar Cuenta de Mercadolibre
-                </a>
-            </li>
-        </ul>
-    </li>
-{% endblock %}
 {% block body %}
 <div class="items-container container-fluid">
 
@@ -52,12 +13,34 @@
                             <h3>{{ item.title }}</h3>
                             <h4>Precio: ${{ item.price }}</h4>
                             <h4 style="color:#00F">Vendedor: {{ item.account.username }}</h4>
+                            <h4 style="color:#F00">Estado: {{ item.status }}</h4>
+
                             <a href="{{item.permalink}}" class="btn btn-primary btn-sm" role="button">Ver publicacion</a>
 
-                            <!-- Delete Item -->
-                            <form action="{% url 'managerApp:delete_items' item.id %}" method="post" style="display: inline;">
+                            <!-- Close Item -->
+                            <form action="{% url 'managerApp:closed_item' item.id %}" method="post" style="display: inline;">
                                 {% csrf_token %}
-                                <input type="hidden" name="item_id" value="{{ item.id }}" />
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </form>
+                            <!-- paused Item -->
+                            <form action="{% url 'managerApp:paused_item' item.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-pause"></span>
+                                </button>
+                            </form>
+                            <!-- active Item -->
+                            <form action="{% url 'managerApp:active_item' item.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-play"></span>
+                                </button>
+                            </form>
+                            <!-- delete Item -->
+                            <form action="{% url 'managerApp:delete_item' item.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
                                 <button type="submit" class="btn btn-default btn-sm">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
