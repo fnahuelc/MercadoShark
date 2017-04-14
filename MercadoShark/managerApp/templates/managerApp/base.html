@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}MercadoShark{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.png' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'managerApp/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'managerApp/animate.css' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{% static 'managerApp/js/main.js' %}"></script>
+    <script src="{% static 'managerApp/js/wow.min.js' %}"></script>
+    <script>new WOW().init();</script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'managerApp:index' %}">MercadoShark</a>
+        </div>
+
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'managerApp:index' %}"><span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp; Todos los articlulos a la venta</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{% url 'managerApp:get_access_token' %}">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>&nbsp; Refrescar el Access token
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'managerApp:create_item' %}">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Agregar Articulo
+                    </a>
+                </li>
+                {% block cuentasML %}
+                {% endblock %}
+                <li>
+                    <a href="{% url 'managerApp:logout' %}">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Salir
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+{% block body %}
+{% endblock %}
+
+</body>
+</html>
