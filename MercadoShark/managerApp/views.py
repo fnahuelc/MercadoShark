@@ -106,7 +106,7 @@ def welcome(request):
             username=response['nickname'],
             userId=response['id']
         )
-        usgit er_ml.save()
+        user_ml.save()
         return render(request, 'managerApp/welcome.html',{'user':user_ml.username})
     else:
         return render(request, 'managerApp/welcomeFirstTime.html')
