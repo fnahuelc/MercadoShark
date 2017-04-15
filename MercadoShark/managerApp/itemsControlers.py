@@ -6,7 +6,7 @@ from ml_lib.meli import Meli
 # Global meli class
 appID =  4704790082736526
 secretID = 'V94M94z1GYoQC5PLXHL95O6mS6p6mOVH'
-REDIRECT_URI = 'http://www.localhost:8000/managerApp/authorize_meli'
+REDIRECT_URI = 'https://fnahuelc.pythonanywhere.com/managerApp/authorize_meli'
 meli = Meli(client_id=appID,client_secret=secretID)
 
 
