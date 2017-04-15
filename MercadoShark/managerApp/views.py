@@ -75,21 +75,24 @@ def delete_item(request,item_id):
 
 
 def index(request):
-    # In case that any account is logged in
-    if len(MlUser.objects.all())==0:
-        return welcome(request)
-
     # Get the items publications from MercadoLibre and render them
     userData = info_logged_user(request)
-    username = userData['nickname']
-    currentUser = MlUser.objects.get(username=username)
-    itemsControlers.get_active_items_from_ML(username)
-    itemsControlers.refresh_info_items(username)
-    items = Item.objects.get(account=currentUser)
-    delays = [.2*n for n in range(len(items))]
-    return render(request, 'managerApp/index.html',
-                         {'items': zip(items,delays),
-                          'delays': delays})
+    if userData:
+        username = userData['nickname']
+        try:
+            currentUser = MlUser.objects.get(username=username)
+        except ObjectDoesNotExist:
+            return welcome(request)
+
+        itemsControlers.get_active_items_from_ML(username)
+        itemsControlers.refresh_info_items(currentUser)
+        items = Item.objects.filter(account=currentUser)
+        delays = [.2*n for n in range(len(items))]
+        return render(request, 'managerApp/index.html',
+                             {'items': zip(items,delays),
+                              'delays': delays})
+    else:
+        return render(request,'managerApp/welcomeFirstTime.html')
 
 
 def logout(request):
@@ -101,20 +104,22 @@ def logout(request):
 def welcome(request):
     # save current the username
     response = info_logged_user(request)
-    user_ml = MlUser(
-            username=response['nickname'],
-            userId=response['id']
-        )
-    user_ml.save()
-    return render(request, 'managerApp/welcome.html',{'user':user_ml.username})
-
+    if response:
+        user_ml = MlUser(
+                username=response['nickname'],
+                userId=response['id']
+            )
+        user_ml.save()
+        return render(request, 'managerApp/welcome.html',{'user':user_ml.username})
+    else:
+        return render(request,'managerApp/welcomeFirstTime.html')
 
 def info_logged_user(request):
     response = itemsControlers.get_information_user()
     if response['status'] not in (403, 400):
         return response
     else:
-        return render(request, 'managerApp/welcomeFirstTime.html')
+        return None
 
 
 def response_errors(request,response,type_error):

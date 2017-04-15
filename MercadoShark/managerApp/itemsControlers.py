@@ -7,8 +7,12 @@ from ml_lib.meli import Meli
 appID =  4704790082736526
 secretID = 'V94M94z1GYoQC5PLXHL95O6mS6p6mOVH'
 REDIRECT_URI = 'https://fnahuelc.pythonanywhere.com/managerApp/authorize_meli'
-meli = Meli(client_id=appID,client_secret=secretID)
 
+#appID =  7292933213227627
+#secretID = 'hElyNu2AWz4btCFGEgYu9997WeopUod0'
+#REDIRECT_URI = 'http://www.localhost:8000/managerApp/authorize_meli'
+
+meli = Meli(client_id=appID,client_secret=secretID)
 
 def publish_item(form):
     # Save the form as a new object,
@@ -50,6 +54,7 @@ def get_information_user():
     response_dict = json.loads(response.content)
     return response_dict
 
+
 def get_active_items_from_ML(username,site_id='MLA'):
     # this function get all publications of a single account
     response = meli.get(path="sites/"+site_id+"/search?nickname="+str(username))
@@ -62,8 +67,8 @@ def get_active_items_from_ML(username,site_id='MLA'):
             create_itemObject(itemResponse,username)
 
 
-def refresh_info_items():
-    for item in Item.objects.all():
+def refresh_info_items(currentUser):
+    for item in Item.objects.filter(account=currentUser):
         response = meli.get(path="items/"+item.itemId)
         data = json.loads(response.content)
         if 'error' in data:
@@ -82,13 +87,13 @@ def refresh_info_items():
 def create_itemObject(itemData,username):
     # this function creates a single item object from item data
     userData = get_information_user()
-    username = userData['nickname']
-    currentUser = MlUser.objects.get(username=username)
+    currentUser = MlUser.objects.get(username=userData['nickname'])
 
     if username == 'this_username':
         username = currentUser.username
     item = Item(
         title=itemData['title'],
+        account = currentUser,
         seller = username,
         price=itemData['price'],
         available_quantity=itemData['available_quantity'],
