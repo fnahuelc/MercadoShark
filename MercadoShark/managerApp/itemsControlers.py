@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Item
+from .models import Item, MlUser
 import json
 from ml_lib.meli import Meli
 
@@ -60,7 +60,7 @@ def get_active_items_from_ML(username,site_id='MLA'):
     for itemResponse in itemsResponse:
         itemsId = [item.itemId for item in Item.objects.all()]
         if not itemResponse['id'] in itemsId:
-            create_itemObject(itemResponse)
+            create_itemObject(itemResponse,username)
 
 
 def refresh_info_items():
@@ -79,21 +79,25 @@ def refresh_info_items():
         item.status = data['status']
         item.save()
 
-    response = meli.get(path="items/" + 'MLA12341')
-    data = json.loads(response.content)
 
-
-def create_itemObject(itemData):
+def create_itemObject(itemData,username):
     # this function creates a single item object from item data
+    userData = get_information_user()
+    username = userData['nickname']
+    currentUser = MlUser.objects.get(username=username)
 
+    if username == 'this_username':
+        username = currentUser.username
     item = Item(
         title=itemData['title'],
+        seller = username,
         price=itemData['price'],
         available_quantity=itemData['available_quantity'],
         description='nada',
         itemId=itemData['id'],
         pictures=itemData['thumbnail'],
         permalink=itemData['permalink'],
+
     )
     item.save()
 

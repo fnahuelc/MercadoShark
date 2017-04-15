@@ -16,6 +16,7 @@ class MlUser(models.Model):
 class Item(models.Model):
     user = models.ForeignKey(User, default=1)
     account = models.ForeignKey(MlUser, default=1)
+    seller = models.CharField(max_length=60, default='No especificado')
     title = models.CharField(max_length=60)
     category_id = models.CharField(max_length=60)
     price = models.FloatField(default='10')

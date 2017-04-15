@@ -15,7 +15,7 @@ def create_item(request):
         # In case of Successful response answer
         try:
             permlink = response['permalink']
-            itemsControlers.create_itemObject(response)
+            itemsControlers.create_itemObject(response,'this_username')
 
             return render(request, 'managerApp/modal.html', {
                 'content':'El articulo se ah publicado con exito!',
@@ -80,15 +80,15 @@ def index(request):
         return welcome(request)
 
     # Get the items publications from MercadoLibre and render them
-    username = MlUser.objects.all()[0].username
+    userData = itemsControlers.get_information_user()
+    username = userData['nickname']
+    currentUser = MlUser.objects.get(username=username)
     itemsControlers.get_active_items_from_ML(username)
-    itemsControlers.refresh_info_items()
-
-    items = Item.objects.all()
+    itemsControlers.refresh_info_items(username)
+    items = Item.objects.get(account=currentUser)
     delays = [.2*n for n in range(len(items))]
     return render(request, 'managerApp/index.html',
                          {'items': zip(items,delays),
-                          'accounts': MlUser.objects.all(),
                           'delays': delays})
 
 
@@ -106,7 +106,7 @@ def welcome(request):
             username=response['nickname'],
             userId=response['id']
         )
-        user_ml.save()
+        usgit er_ml.save()
         return render(request, 'managerApp/welcome.html',{'user':user_ml.username})
     else:
         return render(request, 'managerApp/welcomeFirstTime.html')
