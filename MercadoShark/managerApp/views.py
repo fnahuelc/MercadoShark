@@ -80,7 +80,7 @@ def index(request):
         return welcome(request)
 
     # Get the items publications from MercadoLibre and render them
-    userData = itemsControlers.get_information_user()
+    userData = info_logged_user(request)
     username = userData['nickname']
     currentUser = MlUser.objects.get(username=username)
     itemsControlers.get_active_items_from_ML(username)
@@ -100,14 +100,19 @@ def logout(request):
 
 def welcome(request):
     # save current the username
-    response = itemsControlers.get_information_user()
-    if response['status'] not in (403,400):
-        user_ml = MlUser(
+    response = info_logged_user(request)
+    user_ml = MlUser(
             username=response['nickname'],
             userId=response['id']
         )
-        user_ml.save()
-        return render(request, 'managerApp/welcome.html',{'user':user_ml.username})
+    user_ml.save()
+    return render(request, 'managerApp/welcome.html',{'user':user_ml.username})
+
+
+def info_logged_user(request):
+    response = itemsControlers.get_information_user()
+    if response['status'] not in (403, 400):
+        return response
     else:
         return render(request, 'managerApp/welcomeFirstTime.html')
 

@@ -50,7 +50,6 @@ def get_information_user():
     response_dict = json.loads(response.content)
     return response_dict
 
-
 def get_active_items_from_ML(username,site_id='MLA'):
     # this function get all publications of a single account
     response = meli.get(path="sites/"+site_id+"/search?nickname="+str(username))
