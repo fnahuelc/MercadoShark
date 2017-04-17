@@ -11,13 +11,15 @@ urlpatterns = [
     url(r'^active_item/(?P<item_id>[0-9]+)/$', views.active_item, name='active_item'),
     url(r'^delete_item/(?P<item_id>[0-9]+)/$', views.delete_item, name='delete_item'),
 
-    url(r'^welcome/$', views.welcome, name='welcome'),
-    url(r'^logout/$', views.logout, name='logout'),
+    url(r'^logout_ml/$', views.logout_ml, name='logout_ml'),
 
-    url(r'^login', views.login, name='login'),
+    url(r'^login_ml', views.login_ml, name='login'),
 
     url(r'^authorize_meli$', views.authorize_meli, name='authorize_meli'),
-    url(r'^authorize_meli/(?P<code>w{0,150})$', views.authorize_meli, name='authorizing_meli')
+    url(r'^authorize_meli/(?P<code>w{0,150})$', views.authorize_meli, name='authorizing_meli'),
 
+
+    url(r'^login_user/$', views.login_user, name='login_user'),
+    url(r'^logout_user/$', views.logout_user, name='logout_user'),
 ]
 

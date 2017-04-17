@@ -16,7 +16,7 @@
              <br><br> Para comenzar debes iniciar sesion en Mercado Libre</p>
         </div>
 
-        <form action="{% url 'managerApp:login'%}" method="post" class="" role="form">
+        <form action="{% url 'managerApp:login_user'%}" method="post" class="" role="form">
             {% csrf_token %}
             <div>
                 <button class="btn btn-block btn-info ripple-effect" type="submit" name="Submit" alt="sign in">Logearse en Mercado Libre</button>

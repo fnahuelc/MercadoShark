@@ -1,22 +1,25 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import ItemForm
-from .models import Item, MlUser
-import itemsControlers
+from .forms import ItemForm, UserForm
+from .models import Item
+from itemsControlers import Meli_manager
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth import authenticate, login
+from django.contrib.auth import logout
+from django.contrib.auth.models import User
 
+meli_manager = Meli_manager()
 
 def create_item(request):
 
     # if the form is vaild, publish item
     form = ItemForm(request.POST or None, request.FILES or None)
     if form.is_valid():
-        response = itemsControlers.publish_item(form)
+        response = meli_manager.publish_item(form,request.user)
 
         # In case of Successful response answer
         try:
             permlink = response['permalink']
-            itemsControlers.create_itemObject(response)
-
+            meli_manager.create_itemObject(response,'this_username',request.user)
             return render(request, 'managerApp/modal.html', {
                 'content':'El articulo se ah publicado con exito!',
                 'permlink':permlink})
@@ -39,7 +42,7 @@ def modify_listening(request, item_id, action):
         return manage_error(request,'El articulo dejo de existir')
 
     # change the listening item from Mercado Libre
-    response = itemsControlers.changing_listing_status(item,action)
+    response = meli_manager.changing_listing_status(item,action,request.user)
 
         # in case that the answer is error
     if 'error' in response:
@@ -50,12 +53,18 @@ def modify_listening(request, item_id, action):
         return index(request)
 
 
-def login(request):
-    return itemsControlers.login()
+def login_ml(request):
+    return meli_manager.login()
 
 
 def authorize_meli(request):
-    return itemsControlers.authorize_meli(request)
+    access_token = meli_manager.authorize_meli(request)
+    try:
+        request.user.profile.access_token = access_token
+        request.user.save()
+        return index(request)
+    except:
+        return register(request)
 
 
 def closed_item(request,item_id):
@@ -75,41 +84,33 @@ def delete_item(request,item_id):
 
 
 def index(request):
-    # In case that any account is logged in
-    if len(MlUser.objects.all())==0:
-        return welcome(request)
-
-    # Get the items publications from MercadoLibre and render them
-    username = MlUser.objects.all()[0].username
-    itemsControlers.get_active_items_from_ML(username)
-    itemsControlers.refresh_info_items()
-
-    items = Item.objects.all()
-    delays = [.2*n for n in range(len(items))]
-    return render(request, 'managerApp/index.html',
-                         {'items': zip(items,delays),
-                          'accounts': MlUser.objects.all(),
-                          'delays': delays})
-
-
-def logout(request):
-    #Delete all objects from database and the Global instance
-    MlUser.objects.all().delete()
-    return redirect('https://www.mercadolibre.com/jms/mla/lgz/logout/')
-
-
-def welcome(request):
-    # save current the username
-    response = itemsControlers.get_information_user()
-    if response['status'] not in (403,400):
-        user_ml = MlUser(
-            username=response['nickname'],
-            userId=response['id']
-        )
-        user_ml.save()
-        return render(request, 'managerApp/welcome.html',{'user':user_ml.username})
-    else:
+    if request.user.is_anonymous():
         return render(request, 'managerApp/welcomeFirstTime.html')
+    else:
+        userData = meli_manager.get_information_user(request.user.profile.access_token)
+        if userData:
+            currentUser = request.user
+            try:
+                username = userData['nickname']
+            except KeyError:
+                return login_ml(request)
+
+            meli_manager.get_active_items_from_ML(username,currentUser)
+            meli_manager.refresh_info_items(currentUser)
+            items = Item.objects.filter(user=currentUser)
+            delays = [.2*n for n in range(len(items))]
+            return render(request, 'managerApp/index.html',
+                                     {'items': zip(items,delays),
+                                      'delays': delays})
+        else:
+            return render(request,'managerApp/welcome.html')
+
+
+def logout_ml(request):
+    #Delete all objects from database and the Global instance
+    meli_manager = None
+    logout_user(request)
+    return redirect('https://www.mercadolibre.com/jms/mla/lgz/logout/')
 
 
 def response_errors(request,response,type_error):
@@ -125,3 +126,35 @@ def manage_error(request, error):
     return render(request, 'managerApp/modal.html', {
         'content': 'Lamentablemente, hubo un error. Se obtuvo: ' + str(
             error)})
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('https://www.mercadolibre.com/jms/mla/lgz/logout/')
+
+
+def register(request):
+    userData = meli_manager.get_information_user(meli_manager.access_token)
+    user = authenticate(username=userData['nickname'])
+    if user:
+        login(request, user)
+        return index(request)
+    user = User()
+    user.username = userData['nickname']
+    user.save()
+    user.profile.userId = userData['id']
+    user.profile.access_token= meli_manager.access_token
+    user.save()
+    user = authenticate(username=userData['nickname'])
+    login(request,user)
+    username = user.username
+    return render(request, 'managerApp/welcome.html', {'user': username})
+
+
+
+def login_user(request):
+    if request.user.is_anonymous():
+        return login_ml(request)
+    else:
+        username = request.user.username
+        return render(request, 'managerApp/welcome.html', {'user': username})
