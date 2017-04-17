@@ -94,8 +94,8 @@
           <file leaf-file-name="itemsControlers.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/managerApp/itemsControlers.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+                <state relative-caret-position="135">
+                  <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
                   <folding>
                     <element signature="e#0#64#0" expanded="true" />
                   </folding>
@@ -836,8 +836,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/managerApp/itemsControlers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        <state relative-caret-position="135">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
           </folding>

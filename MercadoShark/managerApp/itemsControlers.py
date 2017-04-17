@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 
 
 class Meli_manager(Meli):
-    appID = 4704790082736526
-    secretID = 'V94M94z1GYoQC5PLXHL95O6mS6p6mOVH'
+    client_id = 4704790082736526
+    client_secret = 'V94M94z1GYoQC5PLXHL95O6mS6p6mOVH'
     REDIRECT_URI = 'https://fnahuelc.pythonanywhere.com/managerApp/authorize_meli'
 
     #client_id = 7292933213227627
