@@ -1,13 +1,36 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .forms import ItemForm, UserForm
+from django.shortcuts import render, redirect
+from .forms import ItemForm
 from .models import Item
-from itemsControlers import Meli_manager
+from api_connection import Meli_manager
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
 
 meli_manager = Meli_manager()
+
+
+def index(request):
+    if request.user.is_anonymous():
+        return render(request, 'managerApp/welcomeFirstTime.html')
+    else:
+        userData = meli_manager.get_information_user(request.user.profile.access_token)
+        if userData:
+            currentUser = request.user
+            try:
+                username = userData['nickname']
+            except KeyError:
+                return meli_manager.login()
+            meli_manager.get_active_items_from_ML(username, currentUser)
+            meli_manager.refresh_info_items(currentUser)
+            items = Item.objects.filter(user=currentUser)
+            delays = [.2*n for n in range(len(items))]
+            return render(request, 'managerApp/index.html', {
+                            'items': zip(items, delays),
+                            'delays': delays})
+        else:
+            return render(request, 'managerApp/welcome.html')
+
 
 def create_item(request):
 
@@ -34,6 +57,22 @@ def create_item(request):
     return render(request, 'managerApp/create_item.html', context)
 
 
+def closed_item(request,item_id):
+    return modify_listening(request, item_id, 'closed')
+
+
+def paused_item(request,item_id):
+    return modify_listening(request, item_id, 'paused')
+
+
+def active_item(request,item_id):
+    return modify_listening(request, item_id, 'active')
+
+
+def delete_item(request,item_id):
+    return modify_listening(request, item_id, 'delete')
+
+
 def modify_listening(request, item_id, action):
     # get the item if is id is valid
     try:
@@ -53,79 +92,21 @@ def modify_listening(request, item_id, action):
         return index(request)
 
 
-def login_ml(request):
-    return meli_manager.login()
-
-
 def authorize_meli(request):
-    access_token = meli_manager.authorize_meli(request)
-    try:
-        request.user.profile.access_token = access_token
-        request.user.save()
-        return index(request)
-    except:
-        return register(request)
-
-
-def closed_item(request,item_id):
-    return modify_listening(request, item_id, 'closed')
-
-
-def paused_item(request,item_id):
-    return modify_listening(request, item_id, 'paused')
-
-
-def active_item(request,item_id):
-    return modify_listening(request, item_id, 'active')
-
-
-def delete_item(request,item_id):
-    return modify_listening(request, item_id, 'delete')
-
-
-def index(request):
+    access_token = meli_manager.authorize_user(request)
     if request.user.is_anonymous():
-        return render(request, 'managerApp/welcomeFirstTime.html')
+        return register(request)
+    request.user.profile.access_token = access_token
+    request.user.save()
+    return index(request)
+
+
+def login_user(request):
+    if request.user.is_anonymous():
+        return meli_manager.login()
     else:
-        userData = meli_manager.get_information_user(request.user.profile.access_token)
-        if userData:
-            currentUser = request.user
-            try:
-                username = userData['nickname']
-            except KeyError:
-                return login_ml(request)
-
-            meli_manager.get_active_items_from_ML(username,currentUser)
-            meli_manager.refresh_info_items(currentUser)
-            items = Item.objects.filter(user=currentUser)
-            delays = [.2*n for n in range(len(items))]
-            return render(request, 'managerApp/index.html',
-                                     {'items': zip(items,delays),
-                                      'delays': delays})
-        else:
-            return render(request,'managerApp/welcome.html')
-
-
-def logout_ml(request):
-    #Delete all objects from database and the Global instance
-    meli_manager = None
-    logout_user(request)
-    return redirect('https://www.mercadolibre.com/jms/mla/lgz/logout/')
-
-
-def response_errors(request,response,type_error):
-    if response['error'] == 'access_token' or response['message'] == 'Malformed access_token: null':
-        return login()
-    else:
-        return render(request, 'managerApp/modal.html', {
-            'content': 'Lamentablemente, ' + type_error + ' Se obtuvo: ' + str(
-                response['message'])})
-
-
-def manage_error(request, error):
-    return render(request, 'managerApp/modal.html', {
-        'content': 'Lamentablemente, hubo un error. Se obtuvo: ' + str(
-            error)})
+        username = request.user.username
+        return render(request, 'managerApp/welcome.html', {'user': username})
 
 
 def logout_user(request):
@@ -146,14 +127,21 @@ def register(request):
     user.profile.access_token= meli_manager.access_token
     user.save()
     user = authenticate(username=userData['nickname'])
-    login(request,user)
+    login(request, user)
     username = user.username
     return render(request, 'managerApp/welcome.html', {'user': username})
 
 
-def login_user(request):
-    if request.user.is_anonymous():
-        return login_ml(request)
+def response_errors(request, response, type_error):
+    if response['error'] == 'access_token' or response['message'] == 'Malformed access_token: null':
+        return login()
     else:
-        username = request.user.username
-        return render(request, 'managerApp/welcome.html', {'user': username})
+        return render(request, 'managerApp/modal.html', {
+            'content': 'Lamentablemente, ' + type_error + ' Se obtuvo: ' + str(
+                response['message'])})
+
+
+def manage_error(request, error):
+    return render(request, 'managerApp/modal.html', {
+        'content': 'Lamentablemente, hubo un error. Se obtuvo: ' + str(
+            error)})

@@ -106,10 +106,10 @@ class Meli_manager(Meli):
         redirectURI = redirect(self.auth_url(redirect_URI=self.REDIRECT_URI))
         return redirectURI
 
-    def authorize_meli(self,request):
+    def authorize_user(self,request):
         code = request.GET.get('code')
         if code:
             access_token = self.authorize(code, self.REDIRECT_URI)
             print ('se creo un nuevo access token', access_token)
             return access_token
-        return self.authorize_meli(request)
+        return self.authorize_user(request)

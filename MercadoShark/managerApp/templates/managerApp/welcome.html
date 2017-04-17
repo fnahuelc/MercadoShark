@@ -16,7 +16,7 @@
              <br><br> Te has logeado en Mercado Libre con el usuario: <br>
                  <strong>{{user}}</strong> </p>
         </div>
-        <a style="text-decoration: none;" href="{% url 'managerApp:logout_ml' %}">
+        <a style="text-decoration: none;" href="{% url 'managerApp:logout_user' %}">
             <span class="btn btn-block btn-danger" aria-hidden="true">Salir de la cuenta</span>&nbsp;
         </a>
         <form action="{% url 'managerApp:index'%}" method="post" class="" role="form">
