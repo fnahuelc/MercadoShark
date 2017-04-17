@@ -10,9 +10,9 @@ class Meli_manager(Meli):
     client_secret = 'V94M94z1GYoQC5PLXHL95O6mS6p6mOVH'
     REDIRECT_URI = 'https://fnahuelc.pythonanywhere.com/managerApp/authorize_meli'
 
-    #client_id = 7292933213227627
-    #client_secret = 'hElyNu2AWz4btCFGEgYu9997WeopUod0'
-    #REDIRECT_URI = 'http://www.localhost:8000/managerApp/authorize_meli'
+    client_id = 7292933213227627
+    client_secret = 'hElyNu2AWz4btCFGEgYu9997WeopUod0'
+    REDIRECT_URI = 'http://www.localhost:8000/managerApp/authorize_meli'
 
     def __init__(self):
         super(Meli_manager, self).__init__(client_id=self.client_id, client_secret=self.client_secret)
