@@ -151,7 +151,6 @@ def register(request):
     return render(request, 'managerApp/welcome.html', {'user': username})
 
 
-
 def login_user(request):
     if request.user.is_anonymous():
         return login_ml(request)

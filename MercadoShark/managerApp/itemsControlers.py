@@ -2,13 +2,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Item
 import json
 from ml_lib.meli import Meli
-from django.contrib.auth.models import User
 
 
 class Meli_manager(Meli):
-    client_id = 4704790082736526
-    client_secret = 'V94M94z1GYoQC5PLXHL95O6mS6p6mOVH'
-    REDIRECT_URI = 'https://fnahuelc.pythonanywhere.com/managerApp/authorize_meli'
+    #client_id = 4704790082736526
+    #client_secret = 'V94M94z1GYoQC5PLXHL95O6mS6p6mOVH'
+    #REDIRECT_URI = 'https://fnahuelc.pythonanywhere.com/managerApp/authorize_meli'
 
     client_id = 7292933213227627
     client_secret = 'hElyNu2AWz4btCFGEgYu9997WeopUod0'
@@ -39,7 +38,6 @@ class Meli_manager(Meli):
                 "pictures": [{"source": item.pictures}]}
         return (json.loads(self.post("/items", publication, {'access_token': access_token}).content))
 
-
     def changing_listing_status(self,item,status,currentUser):
         # set as status close the item
         access_token = currentUser.profile.access_token
@@ -52,7 +50,6 @@ class Meli_manager(Meli):
             response = self.put("/items/" + item.itemId, body, {'access_token': access_token})
         return json.loads(response.content)
 
-
     def get_information_user(self,access_token):
         response = self.get(path="users/me?access_token="+str(access_token))
         response_dict = json.loads(response.content)
@@ -60,8 +57,6 @@ class Meli_manager(Meli):
             return response_dict
         else:
             return None
-
-
 
     def get_active_items_from_ML(self,username,currentUser,site_id='MLA'):
         # this function get all publications of a single account
@@ -73,7 +68,6 @@ class Meli_manager(Meli):
             itemsId = [item.itemId for item in Item.objects.all()]
             if not itemResponse['id'] in itemsId:
                 self.create_itemObject(itemResponse,username,currentUser)
-
 
     def refresh_info_items(self,currentUser):
         for item in Item.objects.filter(user=currentUser):
@@ -90,7 +84,6 @@ class Meli_manager(Meli):
             item.permalink = data['permalink']
             item.status = data['status']
             item.save()
-
 
     def create_itemObject(self,itemData,username,currentUser):
         # this function creates a single item object from item data
@@ -109,11 +102,9 @@ class Meli_manager(Meli):
         )
         item.save()
 
-
     def login(self):
         redirectURI = redirect(self.auth_url(redirect_URI=self.REDIRECT_URI))
         return redirectURI
-
 
     def authorize_meli(self,request):
         code = request.GET.get('code')
