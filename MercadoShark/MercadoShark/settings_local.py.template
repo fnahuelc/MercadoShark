@@ -1,0 +1,15 @@
+########################################################
+# Log in to the applications.mercadolibre.com.ar with your Mercado Libre account
+# Create a new aplication and set the following redirect URI:
+REDIRECT_URI = 'http://www.localhost:8000/managerApp/authorize_meli'
+
+# Get these values:
+CLIENT_ID = 1234567890123456
+CLIENT_SECRET = 'ACBCDEfghij123123123123123123123'
+
+
+########################################################
+################ DONT EDIT THIS LINE ###################
+# Set True for debug mode or False for production
+DEBUG = True
+########################################################
