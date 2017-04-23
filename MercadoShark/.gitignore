@@ -1,6 +1,6 @@
 # Local Settings #
-settings_local.py
-secret.txt
+/settings_local.py
+/secret.txt
 
 # Python #
 ############
