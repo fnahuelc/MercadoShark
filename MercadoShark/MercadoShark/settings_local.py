@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+#asdada
 import platform
 
 LOCAL_DEVELOPMENT = ('fnahuelc.pythonanywhere.com' not in platform.node())
