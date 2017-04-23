@@ -2,19 +2,16 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Item
 import json
 from ml_lib.meli import Meli
+from django.conf import settings
 
 
 class Meli_manager(Meli):
-    #client_id = 4704790082736526
-    #client_secret = 'V94M94z1GYoQC5PLXHL95O6mS6p6mOVH'
-    #REDIRECT_URI = 'https://fnahuelc.pythonanywhere.com/managerApp/authorize_meli'
-
-    client_id = 7292933213227627
-    client_secret = 'hElyNu2AWz4btCFGEgYu9997WeopUod0'
-    REDIRECT_URI = 'http://www.localhost:8000/managerApp/authorize_meli'
+    CLIENT_ID = getattr(settings, "CLIENT_ID", None)
+    CLIENT_SECRET = getattr(settings, "CLIENT_SECRET", None)
+    REDIRECT_URI = getattr(settings, "REDIRECT_URI", None)
 
     def __init__(self):
-        super(Meli_manager, self).__init__(client_id=self.client_id, client_secret=self.client_secret)
+        super(Meli_manager, self).__init__(client_id=self.CLIENT_ID, client_secret=self.CLIENT_SECRET)
 
     def publish_item(self,form, currentUser):
         access_token = currentUser.profile.access_token

@@ -1,4 +1,6 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
+from django.contrib import admin
+
 from . import views
 
 app_name = 'managerApp'
@@ -13,6 +15,5 @@ urlpatterns = [
     url(r'^authorize_meli/(?P<code>w{0,150})$', views.authorize_meli, name='authorizing_meli'),
     url(r'^login_user/$', views.login_user, name='login_user'),
     url(r'^logout_user/$', views.logout_user, name='logout_user'),
-
 ]
 

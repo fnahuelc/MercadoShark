@@ -15,12 +15,29 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Basic Settings
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$=_4q4s***=ixruoj0!h62us&h756%wbgefrz&ie!eu^5cc=+y'
+
+# Secret Key Generator
+if not hasattr(globals(), 'SECRET_KEY'):
+    SECRET_FILE = os.path.join(PROJECT_ROOT, 'secret.txt')
+    try:
+        SECRET_KEY = open(SECRET_FILE).read().strip()
+    except IOError:
+        try:
+            from random import choice
+
+            SECRET_KEY = ''.join([choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)])
+            secret = file(SECRET_FILE, 'w')
+            secret.write(SECRET_KEY)
+            secret.close()
+        except IOError:
+            raise Exception('Please create a %s file with random characters to generate your secret key!' % SECRET_FILE)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -130,3 +147,13 @@ AUTHENTICATION_BACKENDS = (
     'managerApp.authenticate.SettingsBackend', # if they fail the normal test
  )
 
+# Import Local settings
+try:
+    from settings_local import *
+except ImportError:
+    try:
+        from mod_python import apache
+        apache.log_error('local_settings.py not set; using default settings', apache.APLOG_NOTICE)
+    except ImportError:
+        import sys
+        sys.stderr.write('local_settings.py not set; using default settings\n')

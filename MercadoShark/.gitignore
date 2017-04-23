@@ -1,3 +1,6 @@
+# Local Settings #
+settings_local.py
+
 # Python #
 ############
 *.pyc
